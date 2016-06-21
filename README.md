@@ -141,7 +141,7 @@ Get the rating of a particular user on a particular item.
 
 Example to retrieve the rating of the user 'myUserID' on the item 'myItemID':
 ```javascript
-client.getRating(myUserID', 'myItemID', function(err, content) {
+client.getRating('myUserID', 'myItemID', function(err, content) {
 	if(err) {
 		console.log(err);
 	}
@@ -157,7 +157,7 @@ Get the rating of a particular user on a particular item.
 
 Example to save the rating of the user 'myUserID' on the item 'myItemID':
 ```javascript
-client.saveRating({'userID': "myItemID', 'itemID': 'myUserID', 'rating': 5}, function(err, content) {
+client.saveRating({'userID': 'myItemID', 'itemID': 'myUserID', 'rating': 5}, function(err, content) {
 	if(err) {
 		console.log(err);
 	}
