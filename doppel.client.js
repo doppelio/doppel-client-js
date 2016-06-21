@@ -27,7 +27,7 @@ function DoppelClient(applicationID, apiKey) {
         write: protocol + '//' + defaultHosts,
     };*/
 
-    this.host = 'https://api.doppel.io'
+    this.host = 'http:localhost:8080'
 
     //Util functions
 
@@ -97,14 +97,9 @@ function DoppelClient(applicationID, apiKey) {
 		return this._performRequest('POST', path, done, null, user);
 	}
 
-	this.getUser = function(userID, done, params) {
+	this.getUser = function(userID, done) {
 		var path = '/' + 'users/' + userID + '/';
-		return this._performRequest('GET', path, done, params);
-	}
-
-	this.updateUser = function(partialUser, done) {
-		var path = '/' + 'users/' + partialUser.userID + '/';
-		return this._performRequest('PATCH', path, done, null, partialUser);
+		return this._performRequest('GET', path, done);
 	}
 
 	this.saveUser = function(user, done) {
@@ -112,19 +107,24 @@ function DoppelClient(applicationID, apiKey) {
 		return this._performRequest('PUT', path, done, null, user);
 	}
 
+	this.updateUser = function(partialUser, done) {
+		var path = '/' + 'users/' + partialUser.userID + '/';
+		return this._performRequest('PATCH', path, done, null, partialUser);
+	}
+
 	this.deleteUser = function(userID, done) {
 		var path = '/' + 'users/' + userID + '/';
-		this._performRequest('DELETE', path, done);
+		return this._performRequest('DELETE', path, done);
 	}
 
-	this.getRatings = function(userID, done, params) {
+	this.getRatings = function(userID, done) {
 		var path = '/' + 'users/' + userID + '/' + 'ratings/';
-		return this._performRequest('GET', path, done, params);
+		return this._performRequest('GET', path, done);
 	}
 
-	this.getRating = function(userID, itemID, done, params) {
+	this.getRating = function(userID, itemID, done) {
 		var path = '/' + 'users/' + userID + '/' + 'ratings/' + itemID + '/';
-		return this._performRequest('GET', path, done, params);
+		return this._performRequest('GET', path, done);
 	}
 
 	this.saveRating = function(rating, done) {
@@ -134,32 +134,32 @@ function DoppelClient(applicationID, apiKey) {
 
 	this.deleteRating = function(userID, itemID, done) {
 		var path = '/' + 'users/' + userID + '/' + 'ratings/' + itemID + '/';
-		this._performRequest('DELETE', path, done);
+		return this._performRequest('DELETE', path, done);
 	}
 
-	this.getRecommendations = function(userID, done, params) {
-		var path = '/' + 'users/' + userID + '/' + 'recommendations/';
-		return this._performRequest('GET', path, done, params);
-	}
-
-	this.getPrediction = function(userID, itemID, done, params) {
+	this.getPrediction = function(userID, itemID, done) {
 		var path = '/' + 'users/' + userID + '/' + 'predictions/' + itemID + '/';
-		return this._performRequest('GET', path, done, params);
+		return this._performRequest('GET', path, done);
 	}
 
-	this.getSimilars = function(userID, done, params) {
+	this.getRecommendations = function(userID, done) {
+		var path = '/' + 'users/' + userID + '/' + 'recommendations/';
+		return this._performRequest('GET', path, done);
+	}
+
+	this.getSimilars = function(userID, done) {
 		var path = '/' + 'users/' + userID + '/' + 'similars/';
-		return this._performRequest('GET', path, done, params);
+		return this._performRequest('GET', path, done);
 	}
 
-	this.getSimilarity = function(userID, caca, done, params) {
-		var path = '/' + 'users/' + userID + '/' + 'similarities/' + caca + '/';
-		return this._performRequest('GET', path, done, params);
+	this.getSimilarity = function(userID, otherUserID, done) {
+		var path = '/' + 'users/' + userID + '/' + 'similarities/' + otherUserID + '/';
+		return this._performRequest('GET', path, done);
 	}
 
-	this.getItems = function(done, params) {
+	this.getItems = function(done) {
 		var path = '/' + 'items/';
-		return this._performRequest('GET', path, done, params);
+		return this._performRequest('GET', path, done);
 	}
 
 	this.addItem = function(item, done) {
@@ -167,14 +167,9 @@ function DoppelClient(applicationID, apiKey) {
 		return this._performRequest('POST', path, done, null, item);
 	}
 
-	this.getItem = function(itemID, done, params) {
+	this.getItem = function(itemID, done) {
 		var path = '/' + 'items/' + itemID + '/';
-		return this._performRequest('GET', path, done, params);
-	}
-
-	this.updateItem = function(partialItem, done) {
-		var path = '/' + 'items/' + partialItem.itemID + '/';
-		return this._performRequest('PATCH', path, done, null, partialItem);
+		return this._performRequest('GET', path, done);
 	}
 
 	this.saveItem = function(item, done) {
@@ -182,20 +177,24 @@ function DoppelClient(applicationID, apiKey) {
 		return this._performRequest('PUT', path, done, null, item);
 	}
 
+	this.updateItem = function(partialItem, done) {
+		var path = '/' + 'items/' + partialItem.itemID + '/';
+		return this._performRequest('PATCH', path, done, null, partialItem);
+	}
+
 	this.deleteItem = function(itemID, done) {
 		var path = '/' + 'items/' + itemID + '/';
-		this._performRequest('DELETE', path, done);
+		return this._performRequest('DELETE', path, done);
 	}
 
-	this.getSimilars = function(itemID, done, params) {
+	this.getSimilars = function(itemID, done) {
 		var path = '/' + 'items/' + itemID + '/' + 'similars/';
-		return this._performRequest('GET', path, done, params);
+		return this._performRequest('GET', path, done);
 	}
 
-	this.getSimilarity = function(itemID, itemID, done, params) {
-		var path = '/' + 'items/' + itemID + '/' + 'similarities/' + itemID + '/';
-		return this._performRequest('GET', path, done, params);
+	this.getSimilarity = function(itemID, otherItemID, done) {
+		var path = '/' + 'items/' + itemID + '/' + 'similarities/' + otherItemID + '/';
+		return this._performRequest('GET', path, done);
 	}
-
 
 }
