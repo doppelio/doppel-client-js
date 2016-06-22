@@ -117,7 +117,7 @@ function DoppelClient(applicationID, apiKey) {
 		return this._performRequest('DELETE', path, done);
 	}
 
-	this.getRatings = function(userID, done) {
+	this.getUserRatings = function(userID, done) {
 		var path = '/' + 'users/' + userID + '/' + 'ratings/';
 		return this._performRequest('GET', path, done);
 	}
@@ -137,22 +137,22 @@ function DoppelClient(applicationID, apiKey) {
 		return this._performRequest('DELETE', path, done);
 	}
 
-	this.getPrediction = function(userID, itemID, done) {
+	this.getUserPrediction = function(userID, itemID, done) {
 		var path = '/' + 'users/' + userID + '/' + 'predictions/' + itemID + '/';
 		return this._performRequest('GET', path, done);
 	}
 
-	this.getRecommendations = function(userID, done) {
+	this.getUserRecommendations = function(userID, done) {
 		var path = '/' + 'users/' + userID + '/' + 'recommendations/';
 		return this._performRequest('GET', path, done);
 	}
 
-	this.getSimilars = function(userID, done) {
+	this.getSimilarUsers = function(userID, done) {
 		var path = '/' + 'users/' + userID + '/' + 'similars/';
 		return this._performRequest('GET', path, done);
 	}
 
-	this.getSimilarity = function(userID, otherUserID, done) {
+	this.getUsersSimilarity = function(userID, otherUserID, done) {
 		var path = '/' + 'users/' + userID + '/' + 'similarities/' + otherUserID + '/';
 		return this._performRequest('GET', path, done);
 	}
@@ -192,7 +192,7 @@ function DoppelClient(applicationID, apiKey) {
 		return this._performRequest('GET', path, done);
 	}
 
-	this.getSimilarity = function(itemID, otherItemID, done) {
+	this.getSimilaritie = function(itemID, otherItemID, done) {
 		var path = '/' + 'items/' + itemID + '/' + 'similarities/' + otherItemID + '/';
 		return this._performRequest('GET', path, done);
 	}

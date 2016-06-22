@@ -23,7 +23,10 @@ Work in progress
 7. [Get user's ratings](get-user-s-ratings)
 8. [Get a rating](get-a-rating)
 9. [Save a rating](save-a-rating)
-10. [Delete a rating](delete-a-rating)
+10. [Get a prediction for an user](get-a-prediction-for-an-user)
+11. [Get recommendations](get-recommendations)
+12. [Get similar users](get-similar-users)
+13. [Get similarity between users](get-similarity-between-users)
 
 
 # Quick Start
@@ -125,7 +128,7 @@ Get all the ratings of an user.
 
 Example to retrieve the ratings of the user 'myUserID':
 ```javascript
-client.getRatings('myUserID', function(err, content) {
+client.getUserRatings('myUserID', function(err, content) {
 	if(err) {
 		console.log(err);
 	}
@@ -164,15 +167,66 @@ client.saveRating({'userID': 'myItemID', 'itemID': 'myUserID', 'rating': 5}, fun
 });
 ```
 
-## 10. Delete a rating
+## 10. Get a prediction for an user
 
-Delete the rating of a particular user on a particular item.
+Return the prediction of the rating of an user on an item.
 
-Example to delete the rating of the user 'myUserID' on the item 'myItemID':
+Example to retrieve the predicted rating of the user 'myUserID' on the item 'myItemID':
 ```javascript
-client.deleteRating('myUserID', 'myItemID', function(err, content) {
+client.getUserPrediction('myUserID', 'myItemID', function(err, content) {
 	if(err) {
 		console.log(err);
+	}
+	else {
+		console.log(content);
+	}
+});
+```
+
+## 11. Get recommendations
+
+Get recommendations of items for an user.
+
+Example to retrieve and display recommendations for an user 'myUserID':
+```javascript
+client.getRecommendations('myUserID', function(err, content) {
+	if(err) {
+		console.log(err);
+	}
+	else {
+		console.log(content);
+	}
+});
+```
+
+## 12. Get similar users
+
+Retrieve users that are similar to a given user.
+
+Example to retrieve and display similar users of user 'myUserID':
+```javascript
+client.getSimilarUsers('myUserID', function(err, content) {
+	if(err) {
+		console.log(err);
+	}
+	else {
+		console.log(content);
+	}
+});
+```
+
+## 13. Get similarity between users
+
+Return the similarity between two users. The similarity is a number between -1 and 1. A similarity near -1 means that the two users are not similary. On the contrary, a similarity close 1 means that the two users are similar. Moreover, the similarity is symmetric, that is to say the similarity between the between an user 1 and an user 2 is equal to the similarity between an user 2 and an user 1.
+
+Example to retrieve and display the similarity between the user 'myUserID1' and the user 'myUserID2':
+```javascript
+client.getSimilarUsers('myUserID1', 'myUserID2', function(err, content) {
+	if(err) {
+		console.log(err);
+	}
+	else {
+		console.log(content);
 	}
 });
 ```
