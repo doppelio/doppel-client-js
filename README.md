@@ -180,7 +180,7 @@ Delete the rating of a particular user on a particular item.
 
 Example to delete the rating of the user 'myUserID' on the item 'myItemID':
 ```javascript
-client.deleteRating(myItemID', 'myUserID', function(err, content) {
+client.deleteRating('myItemID', 'myUserID', function(err, content) {
 	if(err) {
 		console.log(err);
 	}
