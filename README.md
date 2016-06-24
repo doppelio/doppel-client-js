@@ -1,6 +1,10 @@
 # Doppel API Client for JavaScript
 
+[doppel.io](http://doppel.io) is a hosted recommendation engine.
 
+Please visit our website to know more about us.
+
+Contact support@doppel.io, if you find an issue.
 
 ## Table of Contents
 
@@ -10,30 +14,30 @@ Work in progress
 
 **Commands Reference**
 
-1. [List your users](list-your-users)
-2. [Create an user](create-an-user)
-3. [Get an user](get-an-user)
-4. [Save an user](save-an-user)
-5. [Update an user](update-an-user)
-6. [Delete an user](delete-an-user)
-7. [Get ratings of an user](get-ratings-of-an-user)
-8. [Get a rating](get-a-rating)
-9. [Save a rating](save-a-rating)
-10. [Delete a rating](delete-a-rating)
-11. [Get a prediction](get-a-prediction)
-12. [Get recommendations for an user](get-recommendations-for-an-user)
-13. [Get similar users](get-similar-users)
-14. [Get similarity between users](get-similarity-between-users)
-15. [List your items](list-your-items)
-16. [Create an item](create-an-item)
-17. [Get an item](get-an-item)
-18. [Save an item](save-an-item)
-19. [Update an item](update-an-item)
-20. [Delete an item](delete-an-item)
-21. [Get ratings of an item](get-ratings-of-an-item)
-22. [Get recommendations for an item](get-recommendations-for-an-item)
-23. [Get similar items](get-similar-items)
-24. [Get similarity between items](get-similarity-between-items)
+1. [List your users](#list-your-users)
+2. [Create an user](#create-an-user)
+3. [Get an user](#get-an-user)
+4. [Save an user](#save-an-user)
+5. [Update an user](#update-an-user)
+6. [Delete an user](#delete-an-user)
+7. [Get ratings of an user](#get-ratings-of-an-user)
+8. [Get a rating](#get-a-rating)
+9. [Save a rating](#save-a-rating)
+10. [Delete a rating](#delete-a-rating)
+11. [Get a prediction](#get-a-prediction)
+12. [Get recommendations for an user](#get-recommendations-for-an-user)
+13. [Get similar users](#get-similar-users)
+14. [Get similarity between users](#get-similarity-between-users)
+15. [List your items](#list-your-items)
+16. [Create an item](#create-an-item)
+17. [Get an item](#get-an-item)
+18. [Save an item](#save-an-item)
+19. [Update an item](#update-an-item)
+20. [Delete an item](#delete-an-item)
+21. [Get ratings of an item](#get-ratings-of-an-item)
+22. [Get recommendations for an item](#get-recommendations-for-an-item)
+23. [Get similar items](#get-similar-items)
+24. [Get similarity between items](#get-similarity-between-items)
 
 
 # Quick Start
@@ -42,7 +46,7 @@ Work in progress
 
 # Commands Reference
 
-## 1. List your users
+## List your users
 
 Return a list which contains the IDs of your users.
 
@@ -58,7 +62,7 @@ client.getUsers(function(err, content) {
 });
 ```
 
-## 2. Create an user
+## Create an user
 
 Create a new user and return its ID.
 
@@ -74,7 +78,7 @@ client.addUser(function(err, content) {
 });
 ```
 
-## 3. Get an user
+## Get an user
 
 Return the user corresponding to the ID.
 
@@ -90,7 +94,7 @@ client.getUser('myUserID', function(err, content) {
 });
 ```
 
-## 4. Save an user
+## Save an user
 
 Save an user at a particular ID.
 
@@ -103,7 +107,7 @@ client.saveUser({'userID': 'myUserID', 'ratings': {'myItemID': 5}}, function(err
 });
 ```
 
-## 5. Update an user
+## Update an user
 
 Update an user at a particular ID.
 
@@ -116,7 +120,7 @@ client.updateUser({'userID': 'myUserID', 'ratings': {'myItemID': 2}}, function(e
 });
 ```
 
-## 6. Delete an user
+## Delete an user
 
 Delete a particular user.
 
@@ -129,7 +133,7 @@ client.deleteUser('myUserID', function(err, content) {
 });
 ```
 
-## 7. Get ratings of an user
+## Get ratings of an user
 
 Get all the ratings of an user.
 
@@ -145,7 +149,7 @@ client.getUserRatings('myUserID', function(err, content) {
 });
 ```
 
-## 8. Get a rating
+## Get a rating
 
 Get the rating of a particular user on a particular item.
 
@@ -161,7 +165,7 @@ client.getRating('myUserID', 'myItemID', function(err, content) {
 });
 ```
 
-## 9. Save a rating
+## Save a rating
 
 Get the rating of a particular user on a particular item.
 
@@ -174,7 +178,7 @@ client.saveRating({'userID': 'myItemID', 'itemID': 'myUserID', 'rating': 5}, fun
 });
 ```
 
-## 10. Delete a rating
+## Delete a rating
 
 Delete the rating of a particular user on a particular item.
 
@@ -187,7 +191,7 @@ client.deleteRating('myItemID', 'myUserID', function(err, content) {
 });
 ```
 
-## 11. Get a prediction
+## Get a prediction
 
 Return the prediction of the rating of an user on an item.
 
@@ -203,7 +207,7 @@ client.getPrediction('myUserID', 'myItemID', function(err, content) {
 });
 ```
 
-## 12. Get recommendations for an user
+## Get recommendations for an user
 
 Get recommendations of items for an user.
 
@@ -219,7 +223,7 @@ client.getUserRecommendations('myUserID', function(err, content) {
 });
 ```
 
-## 13. Get similar users
+## Get similar users
 
 Retrieve users that are similar to a given user.
 
@@ -235,7 +239,7 @@ client.getSimilarUsers('myUserID', function(err, content) {
 });
 ```
 
-## 14. Get similarity between users
+## Get similarity between users
 
 Return the similarity between two users. 
 				The similarity is a number between -1 and 1. A similarity near -1 means that the two users are not similar. On the contrary, a similarity close 1 means that the two users are similar. 
@@ -253,7 +257,7 @@ client.getUsersSimilarity('myUserID1', 'myUserID2', function(err, content) {
 });
 ```
 
-## 15. List your items
+## List your items
 
 Return a list which contains the IDs of your items.
 
@@ -269,7 +273,7 @@ client.getItems(function(err, content) {
 });
 ```
 
-## 16. Create an item
+## Create an item
 
 Create a new item and return its ID.
 
@@ -285,7 +289,7 @@ client.addItem(function(err, content) {
 });
 ```
 
-## 17. Get an item
+## Get an item
 
 Return the item corresponding to the ID.
 
@@ -301,7 +305,7 @@ client.getItem('myItemID', function(err, content) {
 });
 ```
 
-## 18. Save an item
+## Save an item
 
 Save an item at a particular ID.
 
@@ -314,7 +318,7 @@ client.saveItem({'itemID': 'myItemID', 'ratings': {'myUserID': 5}}, function(err
 });
 ```
 
-## 19. Update an item
+## Update an item
 
 Update an item at a particular ID.
 
@@ -327,7 +331,7 @@ client.updateItem({'itemID': 'myItemID', 'ratings': {'myUserID': 2}}, function(e
 });
 ```
 
-## 20. Delete an item
+## Delete an item
 
 Delete a particular item.
 
@@ -340,7 +344,7 @@ client.deleteItem('myItemID', function(err, content) {
 });
 ```
 
-## 21. Get ratings of an item
+## Get ratings of an item
 
 Get all the ratings of an item.
 
@@ -356,7 +360,7 @@ client.getItemRatings('myUserID', function(err, content) {
 });
 ```
 
-## 22. Get recommendations for an item
+## Get recommendations for an item
 
 Get recommendations of users for an item.
 
@@ -372,7 +376,7 @@ client.getItemRecommendations('myItemID', function(err, content) {
 });
 ```
 
-## 23. Get similar items
+## Get similar items
 
 Retrieve items that are similar to a given item.
 
@@ -388,7 +392,7 @@ client.getSimilarItems('myItemID', function(err, content) {
 });
 ```
 
-## 24. Get similarity between items
+## Get similarity between items
 
 Return the similarity between two items. 
 				The similarity is a number between -1 and 1. A similarity near -1 means that the two items are not similar. On the contrary, a similarity close 1 means that the two items are similar. 
